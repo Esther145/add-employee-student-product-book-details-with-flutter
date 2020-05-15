@@ -66,7 +66,7 @@ class _StudentsState extends State<Students> {
               ),),
             SizedBox(height: 10.0,),
             RaisedButton(
-              child: Text("Add Details",style: TextStyle(color: Colors.white),),
+              child: Text("ADD STUDENTS",style: TextStyle(color: Colors.white),),
               color: Colors.pinkAccent,
               onPressed: ()
               {
