@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
               title: Text("Students"),
               backgroundColor: Colors.pinkAccent,
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.shop),
+            BottomNavigationBarItem(icon: Icon(Icons.shop_two),
               title: Text("Products"),
               backgroundColor: Colors.deepPurple,
             ),
