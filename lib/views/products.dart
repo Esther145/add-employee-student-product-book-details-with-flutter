@@ -7,8 +7,9 @@ class Products extends StatefulWidget {
 }
 
 class _ProductsState extends State<Products> {
-  @override
-  Widget build(BuildContext context) {
+
+
+
     TextEditingController pname=TextEditingController();
     TextEditingController pid=TextEditingController();
     TextEditingController pquan=TextEditingController();
@@ -17,7 +18,7 @@ class _ProductsState extends State<Products> {
     var pids=[];
     var pquans=[];
     var pprices=[];
-    @override
+@override
     Widget build(BuildContext context) {
       return  SingleChildScrollView(
 
@@ -54,7 +55,7 @@ class _ProductsState extends State<Products> {
               TextField(
                 controller: pquan,
                 decoration: InputDecoration(
-                  hintText: "Enter Product quanity,
+                  hintText: "Enter Product quantity",
                   border: OutlineInputBorder(),
                 ),
 
@@ -68,23 +69,23 @@ class _ProductsState extends State<Products> {
                 ),),
               SizedBox(height: 10.0,),
               RaisedButton(
-                child: Text("Add Details",style: TextStyle(color: Colors.white),),
-                color: Colors.pinkAccent,
+                child: Text("ADD PRODUCTS",style: TextStyle(color: Colors.white),),
+                color: Colors.deepPurple,
                 onPressed: ()
                 {
-                  var dname=name.text;
-                  var droll=rollno.text;
-                  var dadno=adno.text;
-                  var dcollege=college.text;
+                  var name=pname.text;
+                  var quan=pquan.text;
+                  var id=pid.text;
+                  var price=pprice.text;
                   //var details=[{"name":dname,"adno":dadno,"college":dcollege,"rollno":droll}];
 
 
                   setState(() {
 
-                    names.add(dname);
-                    rolls.add(droll);
-                    adnos.add(dadno);
-                    coll.add(dcollege);
+                    pnames.add(name);
+                    pquans.add(quan);
+                    pids.add(id);
+                    pprices.add(price);
 
                   });
                 },
@@ -92,26 +93,26 @@ class _ProductsState extends State<Products> {
               ),
               ListView.builder(
                 shrinkWrap: true,
-                itemCount:names.length==null?0:names.length ,
+                itemCount:pnames.length==null?0:pnames.length ,
                 itemBuilder: (context,index)
                 {
                   return Card(
                     elevation: 19.0,
                     child: ListTile(
-                      leading: Icon(Icons.face,size: 40.0,color: Colors.pinkAccent,),
+                      leading: Icon(Icons.shop,size: 40.0,color: Colors.deepPurpleAccent,),
                       trailing: GestureDetector(
                           onTap: ()
                           {
                             setState(() {
-                              names.removeAt(index);
-                              rolls.removeAt(index);
-                              adnos.removeAt(index);
-                              coll.removeAt(index);
+                              pnames.removeAt(index);
+                              pprices.removeAt(index);
+                              pquans.removeAt(index);
+                              pids.removeAt(index);
                             });
                           },
-                          child: Icon(Icons.clear,size: 40.0,color: Colors.pinkAccent,)),
-                      title: Text(names[index].toString()),
-                      subtitle: Text("Roll No:"+rolls[index].toString()+"\nAdno:"+adnos[index].toString()+"\nCollege:"+coll[index].toString()),
+                          child: Icon(Icons.clear,size: 40.0,color: Colors.deepPurpleAccent,)),
+                      title: Text(pids[index].toString()),
+                      subtitle: Text("Name:"+pnames[index].toString()+"\nQuantity"+pquans[index].toString()+"\nPrice:"+pprices[index].toString()),
 
                     ),
                   );
