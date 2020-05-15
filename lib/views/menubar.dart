@@ -1,4 +1,8 @@
 
+import 'package:addmenubar/views/Books.dart';
+import 'package:addmenubar/views/employee.dart';
+import 'package:addmenubar/views/products.dart';
+import 'package:addmenubar/views/students.dart';
 import 'package:flutter/material.dart';
 class Home extends StatefulWidget {
   @override
@@ -7,16 +11,18 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
-  // int _cindex=0;
-  //final pages=[];
+   int _cindex=0;
+  final pages=[Books(),Employees(),Students()
+  ,Products()];
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Container(),
+        body: pages[_cindex],
+
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.shifting,
-          currentIndex: 1,
+          currentIndex: _cindex,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.library_books),
               title: Text("Books"),
@@ -35,6 +41,12 @@ class _HomeState extends State<Home> {
               backgroundColor: Colors.deepPurple,
             ),
           ],
+          onTap: (index)
+          {
+            setState(() {
+              _cindex=index;
+            });
+          },
         ),
 
       ),
